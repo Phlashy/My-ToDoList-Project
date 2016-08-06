@@ -39,6 +39,16 @@ class ToDoListViewController: UIViewController, UITableViewDataSource, AddItemVi
               
     }
     
+    override func setEditing(editing: Bool, animated: Bool) {
+        
+        super.setEditing(editing, animated: animated)
+        
+        self.tableView?.setEditing(editing, animated: animated)
+        
+        self.navigationItem.rightBarButtonItem?.enabled = !editing
+        
+    }
+    
     //    Mark: AddItemViewControllerProtocol
     
     func addItem(item: String) {
@@ -108,15 +118,7 @@ class ToDoListViewController: UIViewController, UITableViewDataSource, AddItemVi
     }
     
        
-    override func setEditing(editing: Bool, animated: Bool) {
-        
-        super.setEditing(editing, animated: animated)
-        
-        self.tableView?.setEditing(editing, animated: animated)
-        
-        self.navigationItem.rightBarButtonItem?.enabled = !editing
     
-    }
     
 //    Mark: Cache Actions
     
